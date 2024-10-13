@@ -1,0 +1,94 @@
+POST http://localhost:3000/api/auth/signup
+
+{
+    // email, username, password, confirmPassword
+    "email": "test@gmail.com",
+    "username": "test",
+    "password": "123456",
+    "confirmPassword": "123456"
+}
+
+{
+    "_id": "670bada836880527377ec2e4",
+    "username": "test"
+}
+
+{
+    // email, username, password, confirmPassword
+    "email": "test@gmail.com",
+    "username": "test",
+    "password": "123456",
+    "confirmPassword": "123456"
+}
+{
+    "message": "User with this email already exists"
+}
+
+{
+    // email, username, password, confirmPassword
+    "email": "test2@gmail.com",
+    "username": "test",
+    "password": "123456",
+    "confirmPassword": "123456"
+}
+
+{
+    "_id": "670bb0bfb6d62b6c6013a676",
+    "username": "test"
+}
+
+Objects in Database:
+
+{"_id":{"$oid":"670bb0bfb6d62b6c6013a676"},"email":"test2@gmail.com","username":"test","password":"$2a$10$GOVuWaUAEm2Lio/G7f1vP.UBvxy5k16NixtwcPG.11fufJiQsUhrC","profilePicture":"https://avatar.iran.liara.run/username?username=test","__v":{"$numberInt":"0"}}
+
+{
+    // email, username, password, confirmPassword
+    "email": "test3@gmail.com",
+    "username": "test",
+    "password": "123456",
+    "confirmPassword": "123456"
+}
+
+
+JWT Cookie:
+
+{
+    // email, username, password, confirmPassword
+    "email": "test3@gmail.com",
+    "username": "test",
+    "password": "123456",
+    "confirmPassword": "123456"
+}
+
+jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MGJiMzc0NjVmZjkwYzJmNmU4YWRmZiIsImlhdCI6MTcyODgyMDA4NCwiZXhwIjoxNzMxNDEyMDg0fQ.QAZwoCssrbi4Pl8TVY31ubd_g3YYTKdXySnVxGMdeDw; Max-Age=2592000; Path=/; Expires=Tue, 12 Nov 2024 11:48:04 GMT; HttpOnly; SameSite=Strict
+
+/api/auth/login
+
+{
+    // email, username, password, confirmPassword
+    "email": "test3@gmail.com",
+    "password": "123456"
+}
+
+{
+    "_id": "670bb37465ff90c2f6e8adff",
+    "username": "test"
+}
+
+{
+    // email, username, password, confirmPassword
+    "email": "test3@gmail.com",
+    "password": "1234565"
+}
+
+{
+    "message": "Invalid credentials"
+}
+
+/api/auth/logout
+
+{
+    "message": "Logged out successfully"
+}
+
+(noo cookies received from the server)

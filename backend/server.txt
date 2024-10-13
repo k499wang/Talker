@@ -1,0 +1,22 @@
+const express = require('express'); // Import express
+const dotenv = require('dotenv'); // Import dotenv to import the PORT
+const app = express(); // Initialize express, we will try to create the express server
+
+dotenv.config(); // We will call the config method on dotenv to read the .env file and make the environment variables available
+const PORT = process.env.PORT || 3000; // We will set the port to 3000, if the environment variable PORT is not set
+
+// Get accepts, route and a callback function
+app.get('/', (req, res) => { // Get request handler for /, is the root URL of the server
+    res.send('Hello World'); // (req, res) is the callback function, which will send the response 'Hello World' to the client
+});
+
+app.get('/test', function(req, res) { // Traditional function expression for the GET request handler
+    res.send('Test Original'); // Sends 'Hello World' as a response
+});
+
+app.listen(PORT, () => { // We will make the server listen on port 3000, and we will log a message to the console to confirm that the server is running
+    console.log(`Server is running on port ${PORT}`);
+  });
+
+  // Arrow functions are not 
+  

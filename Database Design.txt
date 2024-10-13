@@ -1,0 +1,2 @@
+Each Conversation will have participants array field and messages field (number of messages)
+Messages will have a senderID, receiverID, and message
