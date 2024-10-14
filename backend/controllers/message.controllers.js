@@ -1,4 +1,5 @@
 import Conversation from '../models/conversation.model.js';
+import Message from '../models/message.model.js';
 
 export const sendMessage = async (req, res) =>{
     try{   
@@ -28,6 +29,10 @@ export const sendMessage = async (req, res) =>{
             conversation.messages.push(newMessage);
             await conversation.save();
             await newMessage.save();
+
+            // or await.promiseAll([conversation.save(), newMessage.save()]);
+
+
             // SOCKET FUNCTIONALITY HERE
 
 
@@ -42,4 +47,29 @@ export const sendMessage = async (req, res) =>{
 }   
 
 
+export const getMessages = async (req, res) => {
+    try{
+        // You should not be able to get messages for another user tho.
 
+        const {id: receiverId} = req.params;
+        const senderId = req.user._id; // which comes from the protectrOUTE FUNCTION
+
+        const conversation = await Conversation.findOne({
+            participants: {$all: [receiverId, senderId]}
+        }).populate('messages'); // populate the messages in the conversation, give us the actual messages
+
+        // Above gives us a whole array of messages, with conversations as objects
+
+        if(conversation){
+            res.status(200).json(conversation.messages);
+        } else {
+            res.status(200).json([]); // return an empty array if no conversation is found
+        }
+
+        
+
+
+    } catch (error){
+
+    }
+}

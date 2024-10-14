@@ -104,3 +104,67 @@ POST http://localhost:3000/send/670bada836880527377ec2e4
 {
     "message" :"YOOOOO"
 }
+
+{
+    "message": "Unauthorized"
+}
+
+(with valid cookies)
+http://localhost:3000/api/messages/send/670bb37465ff90c2f6e8adff
+
+{
+    "message" :"YOOOOO"
+}
+
+{
+    "message": "Message sent successfully"
+}
+
+Then in the DB, we see 
+
+{"_id":{"$oid":"670d77b6b8fdcef373af3f01"},"participants":[{"$oid":"670bb37465ff90c2f6e8adff"},{"$oid":"670bb0bfb6d62b6c6013a676"}],"messages":[{"$oid":"670d77d15631a910024e9da5"}],"createdAt":{"$date":{"$numberLong":"1728935862676"}},"updatedAt":{"$date":{"$numberLong":"1728935889555"}},"__v":{"$numberInt":"1"}}
+And in Messages: {"_id":{"$oid":"670d77d15631a910024e9da5"},"senderId":{"$oid":"670bb0bfb6d62b6c6013a676"},"receiverId":{"$oid":"670bb37465ff90c2f6e8adff"},"message":"YOOOOO","createdAt":{"$date":{"$numberLong":"1728935889757"}},"updatedAt":{"$date":{"$numberLong":"1728935889757"}},"__v":{"$numberInt":"0"}}
+
+GET http://localhost:3000/api/messages/get/670bb37465ff90c2f6e8adff
+
+[
+    {
+        "_id": "670d77d15631a910024e9da5",
+        "senderId": "670bb0bfb6d62b6c6013a676",
+        "receiverId": "670bb37465ff90c2f6e8adff",
+        "message": "YOOOOO",
+        "createdAt": "2024-10-14T19:58:09.757Z",
+        "updatedAt": "2024-10-14T19:58:09.757Z",
+        "__v": 0
+    }
+]
+
+Then again 
+
+POST http://localhost:3000/api/messages/send/670bb37465ff90c2f6e8adff
+
+{
+    "message" :"HIYO"
+}
+
+
+[
+    {
+        "_id": "670d77d15631a910024e9da5",
+        "senderId": "670bb0bfb6d62b6c6013a676",
+        "receiverId": "670bb37465ff90c2f6e8adff",
+        "message": "YOOOOO",
+        "createdAt": "2024-10-14T19:58:09.757Z",
+        "updatedAt": "2024-10-14T19:58:09.757Z",
+        "__v": 0
+    },
+    {
+        "_id": "670d7b40f690ee3faedaace5",
+        "senderId": "670bb0bfb6d62b6c6013a676",
+        "receiverId": "670bb37465ff90c2f6e8adff",
+        "message": "HIYO",
+        "createdAt": "2024-10-14T20:12:49.069Z",
+        "updatedAt": "2024-10-14T20:12:49.069Z",
+        "__v": 0
+    }
+]
