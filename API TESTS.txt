@@ -168,3 +168,18 @@ POST http://localhost:3000/api/messages/send/670bb37465ff90c2f6e8adff
         "__v": 0
     }
 ]
+
+
+GET http://localhost:3000/api/users/getusers
+
+{
+    "users": [
+        {
+            "_id": "670bb37465ff90c2f6e8adff",
+            "email": "test3@gmail.com",
+            "username": "test",
+            "profilePicture": "https://avatar.iran.liara.run/username?username=test",
+            "__v": 0
+        }
+    ]
+}
