@@ -1,6 +1,8 @@
 import express from 'express'; // Import express, which is a web framework for Node.js, we changed the package.json to use modules (type, module)
 import dotenv from 'dotenv'; // Import dotenv, which is a module to read environment variables from a .env file
 
+import cookieParser from 'cookie-parser';
+import messageRoutes from './routes/message.routes.js'
 import authRoutes from './routes/auth.routes.js'; // Import the authRoutes from the routes folder
 import {connectToMongoDB} from './db/connect.js';
 
@@ -10,9 +12,10 @@ const PORT = process.env.PORT || 3000; // We will set the port to 3000, if the e
 dotenv.config(); // We will call the config method on dotenv to read the .env file and make the environment variables available
 
 app.use(express.json()); // We will use the express.json() middleware to parse the request body as JSON from req.body
+app.use(cookieParser()); // We will use the cookieParser() middleware to parse the cookies from the request in ProtectRoute
 
 app.use("/api/auth", authRoutes) // when something calls with this route, call the authRoutes
-
+app.use("/api/messages", messageRoutes) 
 
 
 app.listen(PORT, () => { // We will make the server listen on port 3000, and we will log a message to the console to confirm that the server is running

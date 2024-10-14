@@ -92,3 +92,15 @@ jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MGJiMzc0NjVmZjkwYzJmNmU4YWR
 }
 
 (noo cookies received from the server)
+
+POST: http://localhost:3000/api/messages/send/123
+{
+    "message": "Done!"
+}
+
+
+POST http://localhost:3000/send/670bada836880527377ec2e4
+
+{
+    "message" :"YOOOOO"
+}
