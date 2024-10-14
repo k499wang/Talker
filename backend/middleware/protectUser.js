@@ -1,22 +1,9 @@
-import jwt from 'jsonwebtoken';
-import User from '../models/user.model.js';
-import mongoose from 'mongoose';
+import jwt from "jsonwebtoken";
+import User from "../models/user.model.js";
 
-const protectRoute = async (req, res, next) => {
+const protectUser = async (req, res, next) => {
     try{
 
-        // Check if the receiverID is valid. If not, return a 400 status code with a message
-        const receiverId = req.params.id;   
-        if (!mongoose.Types.ObjectId.isValid(receiverId)) { // check if receiverId is a valid ObjectId
-            return res.status(400).json({ message: "Invalid receiver ID" });
-        }
-
-        let receiver = await User.findById(receiverId); // find the receiver by the receiverId
-        
-        if (!receiver) { // if no receiver is found, return not found
-            return res.status(404).json({ message: "Receiver not found" });
-        }
-       
         const token = req.cookies.jwt; // get the token from the cookie
         console.log(req.cookies);
         if(!token){ // if no token is present in the cookie, return unauthorized
@@ -46,5 +33,4 @@ const protectRoute = async (req, res, next) => {
 
 }
 
-
-export default protectRoute;
+export default protectUser;
