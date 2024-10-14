@@ -5,6 +5,7 @@ import cookieParser from 'cookie-parser';
 import messageRoutes from './routes/message.routes.js'
 import authRoutes from './routes/auth.routes.js'; // Import the authRoutes from the routes folder
 import {connectToMongoDB} from './db/connect.js';
+import userRoutes from './routes/user.routes.js';
 
 const app = express(); // Initialize express, we will try to create the express server
 const PORT = process.env.PORT || 3000; // We will set the port to 3000, if the environment variable PORT is not set
@@ -16,6 +17,7 @@ app.use(cookieParser()); // We will use the cookieParser() middleware to parse t
 
 app.use("/api/auth", authRoutes) // when something calls with this route, call the authRoutes
 app.use("/api/messages", messageRoutes) 
+app.use("/api/users", userRoutes)
 
 
 app.listen(PORT, () => { // We will make the server listen on port 3000, and we will log a message to the console to confirm that the server is running
