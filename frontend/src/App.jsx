@@ -5,8 +5,6 @@ import Signup from './pages/signup/signup'
 import Home from './pages/home/home.jsx'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
       <Home></Home>
   )
