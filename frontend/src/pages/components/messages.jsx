@@ -5,10 +5,13 @@ import useListenMessages from '../../hooks/useListenMessages'
 
 
 const Messages = () => {
+
     const {messages, loading}  = useGetMessages();
-    useListenMessages();
     const lastMessage = useRef();
 
+    useListenMessages();
+
+    console.log("MARKER", messages);
     useEffect(() => {
         setTimeout(() => {
             lastMessage.current?.scrollIntoView({behavior: 'smooth'});

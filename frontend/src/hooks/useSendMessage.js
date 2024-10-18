@@ -24,7 +24,7 @@ const useSendMessage = () => {
             if (data.error) {
                 throw new Error('Failed to send message')
             }
-            setMessages([...messages, data]) // Automatically updates messages in zustand store     
+            setMessages([...messages, data]) // Automatically updates messages in zustand store  
 
         } catch (error) {
             console.error(error)
