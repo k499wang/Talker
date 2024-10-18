@@ -5,7 +5,6 @@ const protectUser = async (req, res, next) => {
     try{
 
         const token = req.cookies.jwt; // get the token from the cookie
-        console.log(req.cookies);
         if(!token){ // if no token is present in the cookie, return unauthorized
             return res.status(401).json({message: "Unauthorized, no token present"});
         }

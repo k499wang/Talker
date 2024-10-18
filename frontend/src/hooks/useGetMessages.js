@@ -19,7 +19,6 @@ const useGetMessages = () => {
             });
 
             const data = await response.json();
-            console.log("WHY:" + JSON.stringify(data))
             setMessages(data);  // Automatically updates messages in zustand store
 
             if (data.error) {

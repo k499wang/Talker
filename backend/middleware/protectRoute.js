@@ -18,7 +18,6 @@ const protectRoute = async (req, res, next) => {
         }
        
         const token = req.cookies.jwt; // get the token from the cookie
-        console.log(req.cookies);
         if(!token){ // if no token is present in the cookie, return unauthorized
             return res.status(401).json({message: "Unauthorized, no token present"});
         }
@@ -31,7 +30,6 @@ const protectRoute = async (req, res, next) => {
 
         const user = await User.findById(decoded.id).select("-password"); // find the user by the userId
         if(!user){ // if no user is found, return unauthorized
-            console.log(decoded);
             return res.status(401).json({message: "Unauthorized, user not found"});
         }
 

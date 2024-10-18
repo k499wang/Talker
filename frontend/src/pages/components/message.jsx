@@ -10,8 +10,13 @@ const Message = ({ message }) => {
 
 	const shakeClass = message.shouldShake ? "shake" : "";
 
+	const profilePicture = fromMe ? authUser.profilePicture : selectedConversation.profilePicture;
+
 	return (
 		<div className={`chat ${chatClassName}`}>
+			<div className="chat-image">
+				<img src={profilePicture} alt="Profile" className="w-10 h-10 rounded-full" />
+			</div>
 			<div className={`chat-bubble text-white ${bubbleBgColor} ${shakeClass} pb-2`}>{message.message}</div>
 		</div>
 	);
