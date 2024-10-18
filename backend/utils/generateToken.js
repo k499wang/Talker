@@ -9,7 +9,7 @@ const generateTokenAndSetCookie = (res, id) => {
         httpOnly: true, // this field means that the cookie cannot be accessed by JavaScript
         maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days
         sameSite: "strict", // Protects against CSRF attacks
-        secure: process.env.NODE_ENV === 'production' ? true : false // only send the cookie over HTTPS in production
+        secure: false // true in production
     });
 
     return token;

@@ -23,3 +23,7 @@ Postman also needs to be installed, for API testing.
 Then get MongoDB, create a new project on the cloud, with the free tier of deployment
 
 `$ openssl rand -base64 32` Make JWT Token
+
+npm i react-router-dom
+
+npm install zustand

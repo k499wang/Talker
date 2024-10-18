@@ -1,20 +1,19 @@
-import React from 'react'
+import {useAuth} from "../context/AuthContext";
+import useConversation from '../zustand/useConversation'
 
-const Message = () => {
-return (
-    <div className='chat chat-end'>
-            <div className="chat-image avatar">
-                    <div className='w-10 rounded-full'>
-                            <img src="https://s6.imgcdn.dev/HnXma.png" alt="Avatar"/>
-                    </div>
-            </div>
+const Message = ({ message }) => {
+	const { authUser } = useAuth();
+	const { selectedConversation } = useConversation();
+	const fromMe = message.senderId === authUser._id;
+	const chatClassName = fromMe ? "chat-end" : "chat-start";
+	const bubbleBgColor = fromMe ? "bg-blue-500" : "";
 
-            <div className="chat-content">
-                    <div className="chat-bubble">Not leave it in Darkness</div>
-                    <div className="chat-time">10:00 PM</div>
-            </div>
-    </div>
-)
-}
+	const shakeClass = message.shouldShake ? "shake" : "";
 
-export default Message
+	return (
+		<div className={`chat ${chatClassName}`}>
+			<div className={`chat-bubble text-white ${bubbleBgColor} ${shakeClass} pb-2`}>{message.message}</div>
+		</div>
+	);
+};
+export default Message;

@@ -12,9 +12,17 @@ export const loginUser = async (req, res) => { // asynchronous function, returns
         }
 
         const user = await User.findOne({email}); // await the promise to resolve, then assign the value to user
-        const isPasswordCorrect = await bcryptjs.compare(password, user.password || ""); // need the or as it returns an error without it
         
-        if(!user || !isPasswordCorrect){
+        if(!user){            
+            return res.status(400).json({message: "Invalid credentials"});
+        }
+
+        // ERROR, if you try reading the password of a user not found, it will return an error. Hence we need to split this
+
+
+        const isPasswordCorrect = await bcryptjs.compare(password, user.password || ""); // need the or as it returns an error without it
+
+        if(!isPasswordCorrect){
             return res.status(400).json({message: "Invalid credentials"});
         }
 
@@ -27,7 +35,7 @@ export const loginUser = async (req, res) => { // asynchronous function, returns
 
     } catch (error) {
         console.log(error);
-        res.status(500).json({message: "Something went wrong"});
+        res.status(500).json({message: error.message});
     }
 }
 
