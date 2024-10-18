@@ -36,7 +36,7 @@ export const sendMessage = async (req, res) =>{
             // SOCKET FUNCTIONALITY HERE
 
 
-            res.status(201).json({message: "Message sent successfully"});
+            res.status(201).json(newMessage);
         }
     
     

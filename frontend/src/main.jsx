@@ -2,9 +2,17 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
+import { BrowserRouter } from 'react-router-dom'
+import { AuthContextProvider } from './pages/context/AuthContext.jsx'
+// BrowserRouter is a component that wraps the entire application and provides routing functionality to the application.
+
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <App />
+    <BrowserRouter>
+    <AuthContextProvider>
+      <App />
+    </AuthContextProvider> 
+    </BrowserRouter>
   </StrictMode>,
 )

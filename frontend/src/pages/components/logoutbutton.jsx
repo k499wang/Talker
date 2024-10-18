@@ -1,11 +1,14 @@
-import React from 'react'
+import React from 'react';
+import useLogoutUser from '../../hooks/useLogoutUser';  // Correct import
 
 const LogoutButton = () => {
-return (
-    <div className='mt-auto'>
-        <button className="btn btn-secondary btn-sm">Logout</button>
-    </div>
-)
-}
+  const { logout, loading } = useLogoutUser();  // Correct usage
 
-export default LogoutButton
+  return (
+    <button onClick={logout} disabled={loading}>
+      {loading ? 'Logging out...' : 'Logout'}
+    </button>
+  );
+};
+
+export default LogoutButton;

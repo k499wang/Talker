@@ -1,23 +1,16 @@
 import React from 'react'
+import useGetConversations from '../../hooks/useGetConversations'
 import Chat from './chat'
 
 //  TODO NEW FEATURE: Resizable Chat Component
 const Chats = () => {
+  const { conversations, loading } = useGetConversations();
   return (
-    <div className="py-2 flex flex-col overflow-auto">
-      <div className="border-b border-gray-300 hover:bg-base-200 transition duration-300 ease-in-out">
-        <Chat />
+      <div className="flex flex-col overflow-auto h-full max-h-80">
+          {conversations.map((conversation) => {
+              return <Chat key={conversation._id} conversation={conversation} />;
+          })}
       </div>
-      <div className="border-b border-gray-300 hover:bg-base-200 transition duration-300 ease-in-out">
-        <Chat />
-      </div>
-      <div className="border-b border-gray-300 hover:bg-base-200 transition duration-300 ease-in-out">
-        <Chat />
-      </div>
-      <div className="border-b border-gray-300 hover:bg-base-200 transition duration-300 ease-in-out">
-        <Chat />
-      </div>
-    </div>
   )
 }
 
