@@ -30,7 +30,8 @@ export const loginUser = async (req, res) => { // asynchronous function, returns
 
         res.status(200).json({
             _id: user._id,
-            username: user.username
+            username: user.username,
+            profilePicture: user.profilePicture
         });
 
     } catch (error) {
@@ -92,6 +93,7 @@ export const signupUser = async (req, res) => { // a promise is an object repres
         res.status(201).json({
             _id: newUser._id,
             username: newUser.username,
+            profilePicture: newUser.profilePicture
         });
    
     } catch (error) {

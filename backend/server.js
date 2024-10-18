@@ -8,7 +8,7 @@ import authRoutes from './routes/auth.routes.js'; // Import the authRoutes from 
 import {connectToMongoDB} from './db/connect.js';
 import userRoutes from './routes/user.routes.js';
 
-const app = express(); // Initialize express, we will try to create the express server
+import {app, server} from './socket/socket.js';
 const PORT = process.env.PORT || 3001; // We will set the port to 3000, if the environment variable PORT is not set
 
 dotenv.config(); // We will call the config method on dotenv to read the .env file and make the environment variables available
@@ -34,7 +34,7 @@ app.use("/api/messages", messageRoutes)
 app.use("/api/users", userRoutes)
 
 
-app.listen(PORT, () => { // We will make the server listen on port 3000, and we will log a message to the console to confirm that the server is running
+server.listen(PORT, () => { // We will make the server listen on port 3000, and we will log a message to the console to confirm that the server is running
     connectToMongoDB();
     console.log(`Server is running on port ${PORT}`);
   });

@@ -42,7 +42,6 @@ const useSignupUser = () => {
                 alert(data.error);
             }
 
-            console.log({ username, email, password, confirmPassword }, "signupUser.js");
             // set the value in the local storage
             localStorage.setItem('authUser', JSON.stringify(data)); // the data we see in the console.
             setAuthUser(data); // set the authUser state to the data we get back from the server

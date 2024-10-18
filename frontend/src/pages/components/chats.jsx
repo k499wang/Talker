@@ -4,6 +4,7 @@ import Chat from './chat'
 
 //  TODO NEW FEATURE: Resizable Chat Component
 const Chats = () => {
+
   const { conversations, loading } = useGetConversations();
   return (
       <div className="flex flex-col overflow-auto h-full max-h-80">

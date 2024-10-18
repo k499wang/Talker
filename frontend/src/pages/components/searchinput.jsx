@@ -18,7 +18,6 @@ const SearchInput = () => {
 
     const conversation = conversations.find((conversation) => conversation.username.toLowerCase().includes(search.toLowerCase()));
 
-    console.log(conversation);
     if (conversation) {
       setSelectedConversation(conversation);
     } else {

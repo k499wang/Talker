@@ -11,7 +11,6 @@ const useLoginUser = () => {
     const loginUser = async(email, password) => {
         setLoading(true);
 
-        console.log("Logging in with:", { email, password });
         try{
             const res = await fetch("http://localhost:3001/api/auth/login", {
                 method: "POST",
