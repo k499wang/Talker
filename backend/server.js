@@ -26,13 +26,7 @@ app.use(cors({
 
 // CORS middleware
 app.use((req, res, next) => {
-
-    const allowedOrigins = ['http://localhost:3000', 'https://talker-qz49.onrender.com'];
-    const origin = req.headers.origin;
-    
-    if (allowedOrigins.includes(origin)) {
-        res.header('Access-Control-Allow-Origin', origin); // Dynamically set the allowed origin
-    }
+    res.header('Access-Control-Allow-Origin', "*"); // Dynamically set the allowed origin
 
     res.header('Access-Control-Allow-Credentials', 'true'); // Allow cookies
     res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
