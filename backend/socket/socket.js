@@ -9,6 +9,8 @@ app.use(cors({
     credentials: true, // allow cookies to be sent with the request
   }));
 
+
+
 // CORS middleware
 app.use((req, res, next) => {
 
@@ -35,6 +37,11 @@ const io = new Server(server, {
         credentials: true
     }
 })
+
+server.use(cors({
+    origin: "*", // allow both localhost and deployed frontend
+    credentials: true, // allow cookies to be sent with the request
+  }));
 
 const userSocketMap = {};
 
