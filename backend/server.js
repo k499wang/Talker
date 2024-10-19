@@ -19,13 +19,13 @@ const __dirname = path.resolve()
 dotenv.config(); // We will call the config method on dotenv to read the .env file and make the environment variables available
 
 app.use(cors({
-  origin: ['http://localhost:3000', 'https://talker-qz49.onrender.com'], // allow both localhost and deployed frontend
+  origin: "*", // allow both localhost and deployed frontend
   credentials: true, // allow cookies to be sent with the request
 }));
 
+
 // CORS middleware
 app.use((req, res, next) => {
-
 
     res.header('Access-Control-Allow-Origin', "*"); // Allow All Origins
     res.header('Access-Control-Allow-Credentials', 'true'); // Allow cookies
