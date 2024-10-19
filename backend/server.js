@@ -18,29 +18,6 @@ const __dirname = path.resolve()
 
 dotenv.config(); // We will call the config method on dotenv to read the .env file and make the environment variables available
 
-app.use(cors({
-  origin: "*", // allow both localhost and deployed frontend
-  credentials: true, // allow cookies to be sent with the request
-}));
-
-
-// CORS middleware
-app.use((req, res, next) => {
-
-    res.header('Access-Control-Allow-Origin', "*"); // Allow All Origins
-    res.header('Access-Control-Allow-Credentials', 'true'); // Allow cookies
-    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-
-    // Handle preflight requests
-    if (req.method === 'OPTIONS') {
-        return res.sendStatus(204); // No content for preflight requests
-    }
-
-    next();
-
-});
-
 
 app.use(express.json()); // We will use the express.json() middleware to parse the request body as JSON from req.body
 app.use(cookieParser()); // We will use the cookieParser() middleware to parse the cookies from the request in ProtectRoute
