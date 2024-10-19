@@ -9,7 +9,7 @@ const useGetRandomConversations = () => {
       setLoading(true);
 
       try {
-        let response = await fetch('http://localhost:3001/api/users/getrandomusers', {
+        let response = await fetch('/api/users/getrandomusers', {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',

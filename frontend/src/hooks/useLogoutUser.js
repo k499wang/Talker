@@ -9,7 +9,7 @@ const useLogoutUser = () => {
     setLoading(true);
 
     try {
-      const response = await fetch('http://localhost:3001/api/auth/logout', {
+      const response = await fetch('/api/auth/logout', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

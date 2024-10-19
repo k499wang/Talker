@@ -5,8 +5,14 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
 
-  server:{
+  server: {
     port: 3001,
+    proxy: {
+      '/api': {
+        target: 'https://talker-qz49.onrender.com',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, '/api')
+      }
+    }
   },
-
 })
