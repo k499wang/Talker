@@ -1,6 +1,7 @@
 import {Server } from 'socket.io'; // import the Server class from the socket.io library
 import http from 'http'; // import the http module
 import express from 'express';
+import cors from 'cors';
 
 const app = express();
 
