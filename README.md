@@ -1,11 +1,12 @@
 # Talker
-
 ## Description
-... 
+Talker is a real-time messaging application that allows users to communicate instantly. It features user authentication, message history, and more. It is built using the MERN stack also using DaisyUI and Zustand for state management.
 
 ## Features
-- Real Time Messaing
-- User authentication ... 
+- Real-Time Messaging
+- User Authentication
+- Message History
+- Responsive Design
 
 ## Installation
 1. Clone the repository:
@@ -21,28 +22,33 @@
     npm install
     ```
 
-### Steps Needed To Create
+## Setup
+### Frontend
+1. Create a new Vite project in the frontend folder:
+    ```bash
+    npm create vite@latest frontend
+    ```
+2. Navigate to the frontend directory and install dependencies:
+    ```bash
+    cd frontend
+    npm install
+    cd backend
+    npm install
+    ```
 
-```
-npm create vite@latest on frontend folder
-npm install
-npm init on root folder
-npm run server in the backend
-```
-
-
-## Usage
-1. Start the development server:
+### Backend
+1. Initialize the backend in the root folder:
+    ```bash
+    npm init
+    ```
+2. Start the backend server:
     ```bash
     npm run server
     ```
+
+## Usage
+1. Start the frontend server in the frontend folder:
+    ```bash
+    npm run dev
+    ```
 2. Open your browser and navigate to `http://localhost:3000`.
-
-## Contributing
-Contributions are welcome! Please read the [contributing guidelines](CONTRIBUTING.md) for more information.
-
-## License
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
-## Contact
-For any inquiries, please contact [yourname@example.com](mailto:yourname@example.com).

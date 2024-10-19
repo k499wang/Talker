@@ -1,6 +1,7 @@
 import express from 'express'; // Import express, which is a web framework for Node.js, we changed the package.json to use modules (type, module)
 import dotenv from 'dotenv'; // Import dotenv, which is a module to read environment variables from a .env file
 import cors from 'cors'; // Import cors, which is a middleware to enable Cross-origin resource sharing
+import path from 'path';
 
 import cookieParser from 'cookie-parser';
 import messageRoutes from './routes/message.routes.js'
@@ -10,6 +11,10 @@ import userRoutes from './routes/user.routes.js';
 
 import {app, server} from './socket/socket.js';
 const PORT = process.env.PORT || 3001; // We will set the port to 3000, if the environment variable PORT is not set
+
+const __dirname = path.resolve()
+
+
 
 dotenv.config(); // We will call the config method on dotenv to read the .env file and make the environment variables available
 
@@ -33,6 +38,11 @@ app.use("/api/auth", authRoutes) // when something calls with this route, call t
 app.use("/api/messages", messageRoutes) 
 app.use("/api/users", userRoutes)
 
+app.use(express.static(path.join(__dirname, '/frontend/dist')))
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, 'frontend', 'dist', 'index.html')) // Send the index.html file when a GET request is made to any route
+});
 
 server.listen(PORT, () => { // We will make the server listen on port 3000, and we will log a message to the console to confirm that the server is running
     connectToMongoDB();
