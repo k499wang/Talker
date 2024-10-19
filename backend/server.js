@@ -23,9 +23,6 @@ app.use(cors({
   credentials: true, // allow cookies to be sent with the request
 }));
 
-const express = require('express');
-const app = express();
-
 // CORS middleware
 app.use((req, res, next) => {
 
