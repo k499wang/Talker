@@ -44,7 +44,12 @@ const io = new Server(server, {
         methods: ['GET', 'POST'],
         credentials: true
     }
-});
+})
+
+server.use(cors({
+    origin: "*", // allow both localhost and deployed frontend
+    credentials: true, // allow cookies to be sent with the request
+  }));
 
 const userSocketMap = {};
 
