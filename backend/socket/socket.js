@@ -1,29 +1,20 @@
 import { Server } from 'socket.io'; // import the Server class from the socket.io library
 import http from 'http'; // import the http module
 import express from 'express';
-import cors from 'cors';
+
+import cors from 'cors'; // Import cors, which is a middleware to enable Cross-origin resource sharing
 
 const app = express();
 
-const allowedOrigins = ['http://localhost:3000', 'https://talker-qz49.onrender.com', 'http://localhost:3001'];
-
 app.use(cors({
-    origin: (origin, callback) => {
-        if (allowedOrigins.includes(origin) || !origin) {
-            callback(null, true);
-        } else {
-            callback(new Error('Not allowed by CORS'));
-        }
-    },
+    origin: "*", // allow both localhost and deployed frontend
     credentials: true, // allow cookies to be sent with the request
-}));
+  }));
 
 // CORS middleware
 app.use((req, res, next) => {
-    const origin = req.headers.origin;
-    if (allowedOrigins.includes(origin)) {
-        res.header('Access-Control-Allow-Origin', origin); // Allow specific origins
-    }
+
+    res.header('Access-Control-Allow-Origin', "*"); // Allow All Origins
     res.header('Access-Control-Allow-Credentials', 'true'); // Allow cookies
     res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
     res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
@@ -34,14 +25,15 @@ app.use((req, res, next) => {
     }
 
     next();
+
 });
 
 const server = http.createServer(app); // create a server using the http module and pass the express
 
 const io = new Server(server, {
-    cors: {
-        origin: allowedOrigins,
-        methods: ['GET', 'POST'],
+    cors:{
+        origin: '*',
+        methods: ['GET','POST'],
         credentials: true
     }
 })
