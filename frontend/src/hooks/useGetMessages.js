@@ -10,7 +10,7 @@ const useGetMessages = () => {
         setLoading(true);
 
         try {
-            const response = await fetch(`http://localhost:3001/api/messages/get/${selectedConversation._id}`, {
+            const response = await fetch(`/api/messages/get/${selectedConversation._id}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',

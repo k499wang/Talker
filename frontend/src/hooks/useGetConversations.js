@@ -9,7 +9,7 @@ const useGetConversations = () => {
       setLoading(true);
 
       try {
-        let response = await fetch('http://localhost:3001/api/users/getusers', {
+        let response = await fetch('/api/users/getusers', {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -25,7 +25,7 @@ const useGetConversations = () => {
         // If there are no users, then get the random users function
 
         if(data.users.length === 0) {
-          let response = await fetch('http://localhost:3001/api/users/randomusers', {
+          let response = await fetch('/api/users/randomusers', {
             method: 'GET',
             headers: {
               'Content-Type': 'application/json',
