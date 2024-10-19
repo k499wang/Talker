@@ -23,13 +23,32 @@ app.use(cors({
   credentials: true, // allow cookies to be sent with the request
 }));
 
+const express = require('express');
+const app = express();
+
+// CORS middleware
 app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', ['http://localhost:3000', 'https://talker-qz49.onrender.com/', 'http://localhost:3001']); // Set specific domain
-  res.header('Access-Control-Allow-Credentials', 'true'); // Allow cookies
-  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-  next();
+
+    const allowedOrigins = ['http://localhost:3000', 'https://talker-qz49.onrender.com'];
+    const origin = req.headers.origin;
+    
+    if (allowedOrigins.includes(origin)) {
+        res.header('Access-Control-Allow-Origin', origin); // Dynamically set the allowed origin
+    }
+
+    res.header('Access-Control-Allow-Credentials', 'true'); // Allow cookies
+    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+
+    // Handle preflight requests
+    if (req.method === 'OPTIONS') {
+        return res.sendStatus(204); // No content for preflight requests
+    }
+
+    next();
+
 });
+
 
 app.use(express.json()); // We will use the express.json() middleware to parse the request body as JSON from req.body
 app.use(cookieParser()); // We will use the cookieParser() middleware to parse the cookies from the request in ProtectRoute
