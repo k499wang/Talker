@@ -1,4 +1,6 @@
 # Talker
+VISIT https://talker-qz49.onrender.com/home, for a live deployment of my chat app.
+
 ## Description
 Talker is a real-time messaging application that allows users to communicate instantly. It features user authentication, message history, and more. It is built using the MERN stack also using DaisyUI and Zustand for state management.
 
