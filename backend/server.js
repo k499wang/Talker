@@ -26,6 +26,7 @@ app.use(cors({
 
 // CORS middleware
 app.use((req, res, next) => {
+
     const allowedOrigins = ['http://localhost:3000', 'https://talker-qz49.onrender.com'];
     const origin = req.headers.origin;
     
@@ -43,6 +44,7 @@ app.use((req, res, next) => {
     }
 
     next();
+
 });
 
 
