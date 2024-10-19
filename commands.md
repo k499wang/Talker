@@ -1,29 +1,69 @@
 # In Front End
-`npm create vite@latest`
+# Project Setup
 
-Installing react project under this folder, press react and javascript
+## Frontend
 
-`npm install` Gives our modules.
-`npm run dev` 
+1. **Create Vite Project**
+    ```sh
+    npm create vite@latest
+    ```
+    - Choose `react` and `javascript` when prompted.
 
-# In Root
+2. **Install Dependencies**
+    ```sh
+    npm install
+    ```
 
-`npm init -y` give us a pckage,json, change the main to be server.js in the backend
+3. **Run Development Server**
+    ```sh
+    npm run dev
+    ```
 
-`npm install express dotenv cookie-parser bcryptjs mongoose socket.io jsonwebtoken` Installing everything
+## Backend
 
-`npm run server` To run the server
+1. **Initialize Node.js Project**
+    ```sh
+    npm init -y
+    ```
+    - Update `package.json` to set `"main": "server.js"`.
 
-`npm install nodemon --save-dev` To Not update the file everytime
+2. **Install Dependencies**
+    ```sh
+    npm install express dotenv cookie-parser bcryptjs mongoose socket.io jsonwebtoken
+    ```
 
-`nodemon backend/server.js`
+3. **Run Server**
+    ```sh
+    npm run server
+    ```
 
-Postman also needs to be installed, for API testing.
+4. **Install Nodemon for Development**
+    ```sh
+    npm install nodemon --save-dev
+    ```
+    - Use `nodemon` to automatically restart the server on file changes:
+      ```sh
+      nodemon backend/server.js
+      ```
 
-Then get MongoDB, create a new project on the cloud, with the free tier of deployment
+## Additional Tools
 
-`$ openssl rand -base64 32` Make JWT Token
+- **Postman**: Install for API testing.
+- **MongoDB**: Create a new project on the cloud with the free tier.
 
-npm i react-router-dom
+## Miscellaneous
 
-npm install zustand
+- **Generate JWT Token**
+  ```sh
+  openssl rand -base64 32
+  ```
+
+- **React Router**
+  ```sh
+  npm install react-router-dom
+  ```
+
+- **State Management**
+  ```sh
+  npm install zustand
+  ```
