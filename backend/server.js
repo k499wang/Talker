@@ -1,6 +1,5 @@
 import express from 'express'; // Import express, which is a web framework for Node.js, we changed the package.json to use modules (type, module)
 import dotenv from 'dotenv'; // Import dotenv, which is a module to read environment variables from a .env file
-import cors from 'cors'; // Import cors, which is a middleware to enable Cross-origin resource sharing
 import path from 'path';
 
 import cookieParser from 'cookie-parser';
