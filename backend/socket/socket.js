@@ -8,7 +8,7 @@ const app = express();
 const server = http.createServer(app); // create a server using the http module and pass the express
 const io = new Server(server, {
     cors:{
-        origin: 'http://localhost:3000',
+        origin: '*',
         methods: ['GET','POST'],
         credentials: true
     }
