@@ -26,7 +26,8 @@ app.use(cors({
 
 // CORS middleware
 app.use((req, res, next) => {
-    res.header*('Access-Control-Allow-Origin', '*'); // Allow all origins
+
+    res.header('Access-Control-Allow-Origin', "*"); // Allow All Origins
     res.header('Access-Control-Allow-Credentials', 'true'); // Allow cookies
     res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
     res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
