@@ -17,7 +17,8 @@ const Home = () => {
           </div>
         </div>
       </div>
-    <div className="flex w-full h-1/3 bg-gray-100 mt-4 p-4">
+
+    <div className="flex w-full h-1/3 mt-4 p-4">
       <div className="w-1/2 h-full overflow-y-auto pr-2 border-r border-gray-300">
         <div className="h-full overflow-y-auto">
           <RandomChats />
