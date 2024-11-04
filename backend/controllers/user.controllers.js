@@ -32,4 +32,13 @@ export const getUsers = async (req, res) => {
     }
 }
 
-export default getUsers; // export the getUsers function to be used in other files
+export const getAllUsers = async (req, res) => {
+    try {
+        const users = await User.find({}).select("-password");
+        res.status(200).json({users});
+    }
+    catch (error){
+        console.log(error);
+        res.status(500).json({error: "Internal Server Error Getting Users"})
+    }
+}
