@@ -2,6 +2,7 @@ import React from 'react'
 import Sidebar from '../components/sidebar'
 import MessageContainer from '../components/messagecontainer'
 import RandomChats from '../components/randomChats'
+import AllUsers from '../components/allusers'
 
 const Home = () => {
   return (
