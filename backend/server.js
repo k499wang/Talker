@@ -7,6 +7,7 @@ import messageRoutes from './routes/message.routes.js'
 import authRoutes from './routes/auth.routes.js'; // Import the authRoutes from the routes folder
 import {connectToMongoDB} from './db/connect.js';
 import userRoutes from './routes/user.routes.js';
+import friendRoutes from './routes/friend.routes.js';
 
 import {app, server} from './socket/socket.js';
 const PORT = process.env.PORT || 3001; // We will set the port to 3000, if the environment variable PORT is not set
@@ -24,6 +25,7 @@ app.use(cookieParser()); // We will use the cookieParser() middleware to parse t
 app.use("/api/auth", authRoutes) // when something calls with this route, call the authRoutes
 app.use("/api/messages", messageRoutes) 
 app.use("/api/users", userRoutes)
+app.use("/api/friends", friendRoutes)
 
 app.use(express.static(path.join(__dirname, '/frontend/dist')))
 

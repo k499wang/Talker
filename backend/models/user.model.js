@@ -17,6 +17,18 @@ const userSchema = new mongoose.Schema({ // a Schema is a blueprint for a MongoD
         type: String,
         default: ""
     },
+
+    friends:[{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
+        default: []
+    }],
+
+    friendRequests:[{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
+        default: []
+    }]  
 });
 
 const User = mongoose.model("User", userSchema); // a model is a class with which we construct documents, uppercaes and capitalized 
